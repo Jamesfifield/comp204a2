@@ -3,14 +3,14 @@ package org.waikato.comp204.scrollback;
 /**
  * A Generic Scrollback implementation
  */
-public class GenericScrollback<T> implements GenericScrollbackInterface {
+public class GenericScrollback<T> implements GenericScrollbackInterface<T> {
     @Override
-    public void add(Object item) {
+    public void add(T item) {
 
     }
 
     @Override
-    public Object getLast() {
+    public T getLast() {
         return null;
     }
 

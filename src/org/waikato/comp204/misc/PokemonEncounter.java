@@ -17,7 +17,7 @@ public final class PokemonEncounter {
     /**
      * Name of the encountered Pokemon
      */
-    public Pokemon pokemon;
+    public final Pokemon pokemon;
 
     /**
      * Construct a new immutable Pokemon Encounter instance
