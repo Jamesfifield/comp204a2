@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Sven on 8/8/2016.
+ *
+ * Array list that will throw a exception instead of increase in size.
  */
 public class FixedList<T> extends ArrayList<T> {
 
