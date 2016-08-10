@@ -1,10 +1,14 @@
 package org.waikato.comp204.scrollback;
+import org.waikato.comp204.misc.PokemonEncounter;
+
+import java.util.List;
+
 
 /**
  * A Generic Scrollback implementation
  */
 public class GenericScrollback<T> implements GenericScrollbackInterface<T> {
-    private FixedList<T> history;
+    private List<T> history;
     private int historyCapacity;
     private static final int _defaultSize  = 10;
 
@@ -51,24 +55,35 @@ public class GenericScrollback<T> implements GenericScrollbackInterface<T> {
         return history.size();
     }
 
+    public List<T> getHistory(){
+        return history;
+    }
+
     private boolean isValid(T item){
 
-        //TODO T should compare itself.
+        //TODO T should compare itself by implementing IComparable.
         if(!history.isEmpty()){
 
             if(item instanceof String ){
                if( ((String) item).equalsIgnoreCase(((String) getLast())) )
                     return false;
+            }
+            else if(item instanceof PokemonEncounter){
+                if(((PokemonEncounter)item).equals((PokemonEncounter) getLast()))
+                    return false;
             }else{
                 if(item == getLast())
                     return false;
             }
-        }else if(item instanceof String){
+        }
+        if(item instanceof String){
             if(((String) item).trim().equals(""))
                 return false;
         }
 
 
-        return true;
+
+
+            return true;
     }
 }

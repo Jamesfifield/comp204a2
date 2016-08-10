@@ -61,19 +61,6 @@ public class ScrollbackTest {
 
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void getPrevious_negativeOutOfBoundIndex_shouldProvideOldestItem() throws Exception {
-
-        //Arrange
-        Scrollback testList = new Scrollback(-1);
-        testList.add("1");
-        testList.add("2");
-        testList.add("3");
-        //Act
-        String result = testList.getPrevious(-2);
-        //Assert
-        Assert.assertEquals(result,"1");
-    }
 
 
     @Test
@@ -103,8 +90,24 @@ public class ScrollbackTest {
         Assert.assertEquals(result, 1);
     }
 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getPrevious_negativeOutOfBoundIndex_shouldProvideOldestItem() throws Exception {
+
+        //Arrange
+        Scrollback testList = new Scrollback(-1);
+        testList.add("1");
+        testList.add("2");
+        testList.add("3");
+        //Act
+        String result = testList.getPrevious(-2);
+        //Assert
+        Assert.assertEquals(result,"1");
+    }
+
+
     @Test(expected = IndexOutOfBoundsException.class)
-    public void getLast_lastItemWhenListIsEmpty_throwException() throws Exception {
+    public void getLast_lastItemWhenListIsEmpty_throwOutOfBoundsException() throws Exception {
         //Arrange
         Scrollback testList = new Scrollback();
         //Act

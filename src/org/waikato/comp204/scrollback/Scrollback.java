@@ -59,6 +59,10 @@ public class Scrollback implements ScrollbackInterface {
         return history.size();
     }
 
+    public List<String> getHistory(){
+        return history;
+    }
+
     private boolean isValid(String item){
         if(!history.isEmpty() && item.equalsIgnoreCase(getLast())) return false;
         return true;
